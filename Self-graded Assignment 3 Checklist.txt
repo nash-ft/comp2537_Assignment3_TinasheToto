@@ -1,7 +1,8 @@
 Self-graded Assignment 3 Checklist
 
-    Criteria	
-    ========
+Student Name: Tinashe Toto
+Student Set: C
+
 10/10 marks
 [x]  Pokemon cards are randomized each game.
 
