@@ -1,0 +1,166 @@
+
+
+/* Variables */
+:root {
+  --card-w: 130px;
+  --card-h: 160px;
+  --gap: 14px;
+  --radius: 12px;
+}
+
+/* Theme Colors */
+body.light {
+  --bg: #f8f9fa;
+  --text: #212529;
+  --accent: #0d6efd;
+  --surface: #ffffff;
+  --border: #dee2e6;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #f1f1f1;
+  --accent: #4dabf7;
+  --surface: #1e1e1e;
+  --border: #333;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.card,
+.modal-content,
+footer {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+/*  navbar */
+.navbar {
+  background: var(--surface) !important;
+}
+
+.navbar-brand,
+.form-check-label {
+  color: var(--text) !important;
+}
+
+/* back card image */
+.back_face img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: white;
+  border-radius: var(--radius);
+}
+
+/* ---------- Loading ---------- */
+#loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0;
+  color: var(--text);
+}
+
+/* ---------- Game Grid ---------- */
+#game_grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+  padding: 20px;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  width: var(--card-w);
+  height: var(--card-h);
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+  perspective: 1000px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.front_face,
+.back_face {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  backface-visibility: hidden;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+}
+
+/* back of card */
+.back_face {
+  background: var(--accent);
+  color: white;
+}
+
+/* front of card */
+.front_face {
+  transform: rotateY(180deg);
+  flex-direction: column;
+}
+
+.front_face img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.front_face .poke-name {
+  font-size: 0.7rem;
+  text-transform: capitalize;
+  margin-top: 4px;
+}
+
+/* ---------- Matched ---------- */
+.card.matched .front_face {
+  border-color: var(--accent);
+}
+
+/* ---------- Loading Spinner ---------- */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* ---------- Modal ---------- */
+.modal-content {
+  border-radius: 12px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  :root {
+    --card-w: 100px;
+    --card-h: 125px;
+  }
+}
